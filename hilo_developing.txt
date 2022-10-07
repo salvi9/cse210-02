@@ -1,0 +1,31 @@
+# Teams Activity week 3
+Object: keep Score
+ 
+Class #1: Director              
+ Behavior: 
+ Update players score
+ start the game
+ retrieve players input
+ end the game 
+ Display current card
+ End the game when player reaches 0
+     
+     
+Method:   
+    def start_game(self) 
+    def update_score ()
+    def players_input()
+    def still_playing()
+    def end_game()
+    def display_card()
+     
+     
+     
+Class #2:  Card 
+ Behavior: Pick a random card from # 1 to 13
+ Method:   def card() 
+
+ 
+ sdasdsds
+ sadsadsa
+ display_carddad
