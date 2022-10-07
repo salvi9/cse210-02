@@ -20,7 +20,7 @@ class Director:
     
     def get_inputs(self):
         """Starts things out by getting assigning card_1"""
-        self.card.card_1
+        self.card.card()
 
     def do_updates(self):
         "Checks the guess of the player by reaching into Card.py and gives or takes poins accordingly."
@@ -36,7 +36,7 @@ class Director:
         # their first card and shows them their score. it then asks them if they would like another card
         # if yes, it gets their guess and startes everything over. 
         # if no, it stopps the game.
-        print(f"\nYour new card is: {self.card.card_2}")
+        print(f"\nYour new card is: {self.card.card_1}")
         print(f"Your score is: {self.score}")
         self.another = input("would you like another card (y/n):")
         if self.another == "y":
