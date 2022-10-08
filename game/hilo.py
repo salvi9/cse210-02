@@ -2,20 +2,18 @@ import random
 
 
 class Card:
-    "card that is chosen and the numbers of turns."
+    """card that is chosen and the numbers of turns."""
     
     def __init__(self):
         self.card_1 = 0
         self.card_2 = 0
         self.full_point = 0
-    
 
     "card chooses a random number (1,13)"
     def card(self):
         self.card_1 = random.randint(1, 13)
         return self.card_1        
         # self.num_turns += 1
-
 
     "If player picks a high number and is correct is worth 100 points. Otherwise they lose 75 points"
     def high(self):
