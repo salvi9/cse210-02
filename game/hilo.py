@@ -7,6 +7,7 @@ class Card:
     def __init__(self):
         self.card_1 = 0
         self.card_2 = 0
+        self.full_point = 0
     
 
     "card chooses a random number (1,13)"
@@ -26,6 +27,6 @@ class Card:
     "If player picks a low number and is correct is worth 100 points. Otherwise they lose 75 points"
     def low(self):
         if self.card_2 < self.card_1:
-            return self.full_point +100
+            return self.full_point + 100
         elif self.card_2 > self.card_1:
-            return self.full_point -75
+            return self.full_point - 75
