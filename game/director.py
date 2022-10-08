@@ -2,50 +2,50 @@ from game.hilo import Card
 
 
 class Director:
+    "This class controls and starts the game "
 
-    def __init__(self):
+    def __init__(self, player):
+        "This function sets the value for this class"
         self.card = Card()
-        self.base_card = self.card.roll_card()
-        self.next_card = self.card.roll_card()
+        self.base_card = 0
+        self.next_card = 0
         self.user_guess = ""
-        self.score = 300
-        self.keep_playing = True
+        self.player = player 
+        
+
+
+    def high_low(self):
+        "This function ask the user input if they want high or low cards"
+        self.user_guess = input("High or low? [h/l] ")
+        return (self.user_guess)
+    
+    def show_score(self):
+        "This function will act according if the player guessed correctly or wrong, by adding or removing the corresponding points"
+
+        if (self.base_card < self.next_card and self.user_guess == "h"):
+            self.player.win()
+        elif (self.base_card > self.next_card and self.user_guess == "l"):
+            self.player.win()
+        else:
+            self.player.lose()
 
     def start_game(self):
-        """Gets things going and will be cycled through every time they choose to play another round"""
-        while self.keep_playing:
-            self.do_updates()
-            self.do_outputs()
-            self.get_inputs()
+        "This function starts the game in a loop until the player chooses to stop or quit"
+        continue_playing = "y"
+        while(continue_playing == "y"):
 
-    def get_inputs(self):
-        """Starts things out by getting assigning card_1"""
-        play_again = input("Play Again: ")
-        if play_again.lower() == "y":
-            self.keep_playing = True
-        else:
-            self.keep_playing = False
+            self.base_card = self.card.roll_card()
+            print("The card is ", self.base_card)
 
-    def do_updates(self):
-        """Checks the guess of the player by reaching into Card.py and gives or takes points accordingly."""
-        if self.user_guess.lower() == "high":
-            if self.next_card > self.base_card:
-                self.score += 100
+            self.user_guess = self.high_low()
+
+            self.next_card = self.card.roll_card()
+            print("The next card was ", self.next_card)
+
+            self.user_guess = self.show_score()
+            print("Your socre is: ", self.player.get_score())
+
+            if (self.player.get_score() > 0):
+                continue_playing = input("Continue? [y/n]")
             else:
-                self.score -= 75
-        else:
-            if self.next_card < self.base_card:
-                self.score += 100
-            else:
-                self.score -= 75
-        self.keep_playing = True if self.score > 0 else False
-        print(f"Your score is: {self.score}")
-
-    def do_outputs(self):
-        # Outputs the important game information for each round of play. it shows the player
-        # their first card and shows them their score. it then asks them if they would like another card
-        # if yes, it gets their guess and start everything over.
-        # if no, it stops the game.
-        print(f"The card is: {self.base_card}")
-        self.user_guess = input("High or Low? [high/low]: ")
-        print(f"Next Card is: {self.next_card}")
+                continue_playing = "n"
