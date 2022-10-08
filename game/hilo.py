@@ -1,15 +1,14 @@
-import random
-
+from random import randrange
+"I used randrange because it was easier to use it for me in a function than randomrandint without having to use if statements"
 
 class Card:
-    """card that is chosen and the numbers of turns."""
+    "This class has the information of the random cards being displayed."
     
     def __init__(self):
-        self.card = 0
+        print()
 
     "card chooses a random number (1,13)"
     def roll_card(self):
-        self.card = random.randint(1, 13)
-        return self.card
-        # self.num_turns += 1
+        return randrange(1,13)
 
+        "Then returns the random value to roll card"
