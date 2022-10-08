@@ -7,7 +7,7 @@ class Director:
         self.card = Card()
         self.another = ""
         self.choice = ""
-        self.score = 0
+        self.score = 300
         self.keep_playing = True
         self.points = 0
 
