@@ -13,8 +13,8 @@ class Director:
         self.player = player 
 
     def high_low(self):
-        """This function ask the user input if they want high or low cards"""
-        self.user_guess = input("High or low? [h/l] ")
+        """This function asks the user's input to guess the next card as high or low"""
+        self.user_guess = input("High or low? [h/l]: ")
         return self.user_guess
     
     def show_score(self):
@@ -34,17 +34,17 @@ class Director:
         while continue_playing == "y":
 
             self.base_card = self.card.roll_card()
-            print("\nThe card is ", self.base_card)
+            print("\nThe card is: ", self.base_card)
 
             self.user_guess = self.high_low()
 
             self.next_card = self.card.roll_card()
-            print("The next card was ", self.next_card)
+            print("The next card was: ", self.next_card)
 
             self.show_score()
             print("Your score is: ", self.player.get_score())
 
             if self.player.get_score() > 0:
-                continue_playing = input("\nContinue? [y/n]")
+                continue_playing = input("\nKeep playing? [y/n]")
             else:
                 continue_playing = "n"

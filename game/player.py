@@ -7,7 +7,7 @@ class Player:
         self.score = 300
 
     def win(self):
-        """If the user guesses correctly gets 100+"""
+        """If the user guesses correctly gets +100"""
         self.score += 100
 
     def lose(self):
